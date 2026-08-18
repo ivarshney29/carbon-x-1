@@ -130,6 +130,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         errorMsg = 'Sign-in cancelled: The Google sign-in popup was closed.';
       } else if (err.code === 'auth/cancelled-popup-request') {
         errorMsg = 'Only one popup request allowed at a time.';
+      } else if (err.code === 'auth/unauthorized-domain') {
+        errorMsg = 'Domain not authorized in Firebase Console yet. Please use Fast Demo or Email/Password login to explore instantly!';
       } else if (err.message) {
         errorMsg = err.message;
       }
